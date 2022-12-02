@@ -13,9 +13,9 @@ export default function Flashcard({ index, question, answer }) {
         setExibirPerguntaAberta(true);
     }
 
-    // function exibirResposta() {
-    //     setExibirContainerBotoes(true)
-    // }
+    function exibirResposta() {
+        setExibirContainerBotoes(true)
+    }
 
     return (
         <>
@@ -36,7 +36,7 @@ export default function Flashcard({ index, question, answer }) {
                         <img
                             src={setaVirar}
                             alt="seta virar"
-                        // onClick={exibirResposta}
+                            onClick={exibirResposta}
                         />
                     )}
                     {exibirContainerBotoes && (
