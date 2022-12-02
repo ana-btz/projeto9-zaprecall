@@ -1,7 +1,10 @@
-export default function Flaschcard() {
+export default function Flashcard() {
     return (
-        <div>
-            Flaschcard
-        </div>
+        <>
+            <div className="pergunta-fechada">
+                <p>Pergunta 1</p>
+                <img></img>
+            </div>
+        </>
     )
 }

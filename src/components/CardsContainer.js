@@ -1,7 +1,12 @@
+import Flashcard from "./Flashcard";
+
 export default function CardsContainer() {
     return (
-        <div>
-            CardsContainer
-        </div>
+        <>
+            <Flashcard />
+            <Flashcard />
+            <Flashcard />
+            <Flashcard />
+        </>
     )
 }
