@@ -1,4 +1,4 @@
-.screen-container{
+.screen-container {
   background-color: #FB6B6B;
   width: 100vw;
   min-height: 100vh;
@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   margin: 40px 0 20px 0;
- 
+
 }
 
 .logo-container img {
@@ -48,7 +48,7 @@
   padding: 10px;
 }
 
-.footer-concluidos > .container-botoes {
+.footer-concluidos>.container-botoes {
   display: flex;
   width: 80%;
   justify-content: space-between;
@@ -62,7 +62,7 @@
   CINZA = "#333333" 
 */
 
-.container-botoes > button {
+.container-botoes>button {
   width: 90px;
   font-family: 'Recursive';
   font-style: normal;
@@ -77,7 +77,7 @@
   background: blue;
   border-radius: 5px;
   border: 1px solid blue;
-  padding:5px;
+  padding: 5px;
 }
 
 .pergunta-fechada {
@@ -93,7 +93,7 @@
   justify-content: space-between;
 }
 
-.pergunta-fechada > p {
+.pergunta-fechada>p {
   font-family: 'Recursive';
   font-style: normal;
   font-weight: 700;
@@ -122,7 +122,7 @@
   justify-content: space-between;
 }
 
-.pergunta-aberta > img{
+.pergunta-aberta>img {
   position: absolute;
   bottom: 10px;
   right: 10px;
