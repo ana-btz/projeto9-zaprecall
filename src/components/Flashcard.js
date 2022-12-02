@@ -8,10 +8,10 @@ export default function Flashcard({ index, question, answer }) {
     const [exibirPerguntaAberta, setExibirPerguntaAberta] = useState(false);
     const [exibirContainerBotoes, setExibirContainerBotoes] = useState(false);
 
-    // function exibirPergunta() {
-    //     setExibirPerguntaFechada(false);
-    //     setExibirPerguntaAberta(true);
-    // }
+    function exibirPergunta() {
+        setExibirPerguntaFechada(false);
+        setExibirPerguntaAberta(true);
+    }
 
     // function exibirResposta() {
     //     setExibirContainerBotoes(true)
@@ -25,13 +25,13 @@ export default function Flashcard({ index, question, answer }) {
                     <img
                         src={setaPlay}
                         alt="seta play"
-                    // onClick={exibirPergunta}
+                        onClick={exibirPergunta}
                     />
                 </PerguntaFechada>
             )}
             {exibirPerguntaAberta && (
                 <PerguntaAberta>
-                    Texto do Flashcard
+                    {!exibirContainerBotoes ? question : answer}
                     {!exibirContainerBotoes && (
                         <img
                             src={setaVirar}
