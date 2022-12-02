@@ -3,7 +3,7 @@ import styled from "styled-components"
 import setaPlay from "../assets/img/seta_play.png"
 import setaVirar from "../assets/img/seta_virar.png"
 
-export default function Flashcard() {
+export default function Flashcard({ index }) {
     // const [exibirPerguntaFechada, setExibirPerguntaFechada] = useState(true);
     // const [exibirPerguntaAberta, setExibirPerguntaAberta] = useState(false);
     // const [exibirContainerBotoes, setExibirContainerBotoes] = useState(false);
@@ -20,33 +20,33 @@ export default function Flashcard() {
     return (
         <>
             {/* {exibirPerguntaFechada && ( */}
-                <PerguntaFechada>
-                    <p>Pergunta</p>
-                    <img
-                        src={setaPlay}
-                        alt="seta play"
-                        // onClick={exibirPergunta}
-                    />
-                </PerguntaFechada>
+            <PerguntaFechada>
+                <p>Pergunta {index}</p>
+                <img
+                    src={setaPlay}
+                    alt="seta play"
+                // onClick={exibirPergunta}
+                />
+            </PerguntaFechada>
             {/* )} */}
             {/* {exibirPerguntaAberta && ( */}
-                <PerguntaAberta>
-                    Texto do Flashcard
-                    {/* {!exibirContainerBotoes && ( */}
-                        <img
-                            src={setaVirar}
-                            alt="seta virar"
-                            // onClick={exibirResposta}
-                        />
-                    {/* )} */}
-                    {/* {exibirContainerBotoes && ( */}
-                        <ContainerBotoes>
-                            <button>Não lembrei</button>
-                            <button>Quase não lembrei</button>
-                            <button>Zap!</button>
-                        </ContainerBotoes>
-                    {/* )} */}
-                </PerguntaAberta>
+            <PerguntaAberta>
+                Texto do Flashcard
+                {/* {!exibirContainerBotoes && ( */}
+                <img
+                    src={setaVirar}
+                    alt="seta virar"
+                // onClick={exibirResposta}
+                />
+                {/* )} */}
+                {/* {exibirContainerBotoes && ( */}
+                <ContainerBotoes>
+                    <button>Não lembrei</button>
+                    <button>Quase não lembrei</button>
+                    <button>Zap!</button>
+                </ContainerBotoes>
+                {/* )} */}
+            </PerguntaAberta>
             {/* )} */}
         </>
     )
