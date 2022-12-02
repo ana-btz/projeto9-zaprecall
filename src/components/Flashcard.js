@@ -3,10 +3,10 @@ import styled from "styled-components"
 import setaPlay from "../assets/img/seta_play.png"
 import setaVirar from "../assets/img/seta_virar.png"
 
-export default function Flashcard({ index }) {
-    // const [exibirPerguntaFechada, setExibirPerguntaFechada] = useState(true);
-    // const [exibirPerguntaAberta, setExibirPerguntaAberta] = useState(false);
-    // const [exibirContainerBotoes, setExibirContainerBotoes] = useState(false);
+export default function Flashcard({ index, question, answer }) {
+    const [exibirPerguntaFechada, setExibirPerguntaFechada] = useState(true);
+    const [exibirPerguntaAberta, setExibirPerguntaAberta] = useState(false);
+    const [exibirContainerBotoes, setExibirContainerBotoes] = useState(false);
 
     // function exibirPergunta() {
     //     setExibirPerguntaFechada(false);
@@ -19,35 +19,35 @@ export default function Flashcard({ index }) {
 
     return (
         <>
-            {/* {exibirPerguntaFechada && ( */}
-            <PerguntaFechada>
-                <p>Pergunta {index}</p>
-                <img
-                    src={setaPlay}
-                    alt="seta play"
-                // onClick={exibirPergunta}
-                />
-            </PerguntaFechada>
-            {/* )} */}
-            {/* {exibirPerguntaAberta && ( */}
-            <PerguntaAberta>
-                Texto do Flashcard
-                {/* {!exibirContainerBotoes && ( */}
-                <img
-                    src={setaVirar}
-                    alt="seta virar"
-                // onClick={exibirResposta}
-                />
-                {/* )} */}
-                {/* {exibirContainerBotoes && ( */}
-                <ContainerBotoes>
-                    <button>Não lembrei</button>
-                    <button>Quase não lembrei</button>
-                    <button>Zap!</button>
-                </ContainerBotoes>
-                {/* )} */}
-            </PerguntaAberta>
-            {/* )} */}
+            {exibirPerguntaFechada && (
+                <PerguntaFechada>
+                    <p>Pergunta {index}</p>
+                    <img
+                        src={setaPlay}
+                        alt="seta play"
+                    // onClick={exibirPergunta}
+                    />
+                </PerguntaFechada>
+            )}
+            {exibirPerguntaAberta && (
+                <PerguntaAberta>
+                    Texto do Flashcard
+                    {!exibirContainerBotoes && (
+                        <img
+                            src={setaVirar}
+                            alt="seta virar"
+                        // onClick={exibirResposta}
+                        />
+                    )}
+                    {exibirContainerBotoes && (
+                        <ContainerBotoes>
+                            <button>Não lembrei</button>
+                            <button>Quase não lembrei</button>
+                            <button>Zap!</button>
+                        </ContainerBotoes>
+                    )}
+                </PerguntaAberta>
+            )}
         </>
     )
 }

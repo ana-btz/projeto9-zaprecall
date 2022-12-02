@@ -2,7 +2,6 @@ import styled from "styled-components";
 import CardsContainer from "./CardsContainer";
 import Footer from "./Footer";
 import logo from "../assets/img/logo.png";
-import deck from "../deck"
 
 export default function Main() {
     return (
