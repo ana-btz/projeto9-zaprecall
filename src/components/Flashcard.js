@@ -13,6 +13,7 @@ export default function Flashcard({ index, question, answer, respondidas, setRes
     const [status, setStatus] = useState(false);
     const [textColor, setTextColor] = useState("");
     const [icon, setIcon] = useState("");
+    const [iconTest, setIconTest] = useState("play-btn");
 
     function exibirPergunta(index) {
         if (!respondidas.includes(index)) {
@@ -40,12 +41,15 @@ export default function Flashcard({ index, question, answer, respondidas, setRes
 
         if (color === VERDE) {
             setIcon(iconeCerto);
+            setIconTest("zap-icon");
         }
         if (color === AMARELO) {
             setIcon(iconeQuase);
+            setIconTest("partial-icon");
         }
         if (color === VERMELHO) {
             setIcon(iconeErro);
+            setIconTest("no-icon");
         }
 
 
@@ -54,9 +58,10 @@ export default function Flashcard({ index, question, answer, respondidas, setRes
     return (
         <>
             {exibirPerguntaFechada && (
-                <PerguntaFechada status={status} textColor={textColor} >
-                    <p>Pergunta {index}</p>
+                <PerguntaFechada data-test="flashcard" status={status} textColor={textColor} >
+                    <p data-test="flashcard-text">Pergunta {index}</p>
                     <img
+                        data-test={iconTest}
                         src={!status ? setaPlay : icon}
                         alt="seta play"
                         onClick={() => exibirPergunta(index)}
@@ -64,10 +69,13 @@ export default function Flashcard({ index, question, answer, respondidas, setRes
                 </PerguntaFechada>
             )}
             {exibirPerguntaAberta && (
-                <PerguntaAberta>
-                    {!exibirContainerBotoes ? question : answer}
+                <PerguntaAberta data-test="flashcard" >
+                    <div data-test="flashcard-text">
+                        {!exibirContainerBotoes ? question : answer}
+                    </div>
                     {!exibirContainerBotoes && (
                         <img
+                            data-test="turn-btn"
                             src={setaVirar}
                             alt="seta virar"
                             onClick={exibirResposta}
@@ -75,9 +83,18 @@ export default function Flashcard({ index, question, answer, respondidas, setRes
                     )}
                     {exibirContainerBotoes && (
                         <ContainerBotoes>
-                            <Botao color={VERMELHO} onClick={() => tratarEscolha(index, VERMELHO)}>Não lembrei</Botao>
-                            <Botao color={AMARELO} onClick={() => tratarEscolha(index, AMARELO)}>Quase não lembrei</Botao>
-                            <Botao color={VERDE} onClick={() => tratarEscolha(index, VERDE)}>Zap!</Botao>
+                            <Botao
+                                data-test="no-btn"
+                                color={VERMELHO}
+                                onClick={() => tratarEscolha(index, VERMELHO)}>Não lembrei</Botao>
+                            <Botao
+                                data-test="partial-btn"
+                                color={AMARELO}
+                                onClick={() => tratarEscolha(index, AMARELO)}>Quase não lembrei</Botao>
+                            <Botao
+                                data-test="zap-btn"
+                                color={VERDE}
+                                onClick={() => tratarEscolha(index, VERDE)}>Zap!</Botao>
                         </ContainerBotoes>
                     )}
                 </PerguntaAberta>
