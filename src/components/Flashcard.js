@@ -6,7 +6,7 @@ import iconeCerto from "../assets/img/icone_certo.png"
 import iconeErro from "../assets/img/icone_erro.png"
 import iconeQuase from "../assets/img/icone_quase.png"
 
-export default function Flashcard({ index, question, answer, respondidas, setRespondidas }) {
+export default function Flashcard({ index, question, answer, respondidas, setRespondidas, count, setCount }) {
     const [exibirPerguntaFechada, setExibirPerguntaFechada] = useState(true);
     const [exibirPerguntaAberta, setExibirPerguntaAberta] = useState(false);
     const [exibirContainerBotoes, setExibirContainerBotoes] = useState(false);
@@ -34,6 +34,9 @@ export default function Flashcard({ index, question, answer, respondidas, setRes
 
         const listaRespondidas = [...respondidas, index];
         setRespondidas(listaRespondidas);
+
+        const answeredQuestions = count + 1;
+        setCount(answeredQuestions)
 
         if (color === VERDE) {
             setIcon(iconeCerto);

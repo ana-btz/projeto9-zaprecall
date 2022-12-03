@@ -2,7 +2,7 @@ import Flashcard from "./Flashcard";
 import deck from "../deck"
 import { useState } from "react";
 
-export default function CardsContainer() {
+export default function CardsContainer({ count, setCount }) {
     const [respondidas, setRespondidas] = useState([]);
 
     console.log(respondidas)
@@ -30,6 +30,8 @@ export default function CardsContainer() {
                     answer={answer}
                     respondidas={respondidas}
                     setRespondidas={setRespondidas}
+                    setCount={setCount}
+                    count={count}
                 />
             )}
         </>

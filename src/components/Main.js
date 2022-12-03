@@ -2,16 +2,20 @@ import styled from "styled-components";
 import CardsContainer from "./CardsContainer";
 import Footer from "./Footer";
 import logo from "../assets/img/logo.png";
+import { useState } from "react";
 
 export default function Main() {
+    const [count, setCount] = useState(0);
+    console.log(count);
+
     return (
         <ScreenContainer>
-            <LogoContainer>
+            <LogoContainer >
                 <img src={logo} alt="logo"></img>
                 <h1>ZapRecall</h1>
             </LogoContainer>
-            <CardsContainer />
-            <Footer />
+            <CardsContainer count={count} setCount={setCount} />
+            <Footer count={count} />
         </ScreenContainer>
     )
 }
