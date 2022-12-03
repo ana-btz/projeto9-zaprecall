@@ -2,12 +2,17 @@ import { useState } from "react"
 import styled from "styled-components"
 import setaPlay from "../assets/img/seta_play.png"
 import setaVirar from "../assets/img/seta_virar.png"
+import iconeCerto from "../assets/img/icone_certo.png"
+import iconeErro from "../assets/img/icone_erro.png"
+import iconeQuase from "../assets/img/icone_quase.png"
 
 export default function Flashcard({ index, question, answer, respondidas, setRespondidas }) {
     const [exibirPerguntaFechada, setExibirPerguntaFechada] = useState(true);
     const [exibirPerguntaAberta, setExibirPerguntaAberta] = useState(false);
     const [exibirContainerBotoes, setExibirContainerBotoes] = useState(false);
     const [status, setStatus] = useState(false);
+    const [textColor, setTextColor] = useState("");
+    const [icon, setIcon] = useState("");
 
     function exibirPergunta(index) {
         if (!respondidas.includes(index)) {
@@ -24,24 +29,32 @@ export default function Flashcard({ index, question, answer, respondidas, setRes
         setExibirContainerBotoes(false);
         setExibirPerguntaAberta(false);
         setExibirPerguntaFechada(true);
+        setTextColor(color);
         setStatus(true);
 
         const listaRespondidas = [...respondidas, index];
         setRespondidas(listaRespondidas);
 
-
         if (color === VERDE) {
-            alert("é verde")
+            setIcon(iconeCerto);
         }
+        if (color === AMARELO) {
+            setIcon(iconeQuase);
+        }
+        if (color === VERMELHO) {
+            setIcon(iconeErro);
+        }
+
+
     }
 
     return (
         <>
             {exibirPerguntaFechada && (
-                <PerguntaFechada status={status} >
+                <PerguntaFechada status={status} textColor={textColor} >
                     <p>Pergunta {index}</p>
                     <img
-                        src={setaPlay}
+                        src={!status ? setaPlay : icon}
                         alt="seta play"
                         onClick={() => exibirPergunta(index)}
                     />
@@ -87,7 +100,7 @@ const PerguntaFechada = styled.div`
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
-        color: #333333;
+        color: ${props => !props.status ? CINZA : props.textColor};
         text-decoration: ${props => !props.status ? "" : "line-through"};
     }
     img:hover {
