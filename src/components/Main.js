@@ -6,7 +6,6 @@ import { useState } from "react";
 
 export default function Main() {
     const [count, setCount] = useState(0);
-    console.log(count);
 
     return (
         <ScreenContainer>
@@ -17,7 +16,7 @@ export default function Main() {
             <CardsContainer count={count} setCount={setCount} />
             <Footer count={count} />
         </ScreenContainer>
-    )
+    );
 }
 
 const ScreenContainer = styled.div`
@@ -29,7 +28,7 @@ const ScreenContainer = styled.div`
     align-items: center;
     margin: 0px;
     padding: 0px;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
 `
 
 const LogoContainer = styled.div`

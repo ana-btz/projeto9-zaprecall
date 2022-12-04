@@ -3,9 +3,9 @@ import styled from "styled-components";
 export default function Footer({ count }) {
     return (
         <FooterConcluidos data-test="footer">
-            {count}/4 CONCLUÍDOS
+            {count}/8 CONCLUÍDOS
         </FooterConcluidos>
-    )
+    );
 }
 
 const FooterConcluidos = styled.div`
