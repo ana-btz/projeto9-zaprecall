@@ -34,7 +34,7 @@ export default function Home({ setExibirTelaInicial, setExibirMain, setFlashcard
             <LogoContainer >
                 <img src={logo} alt="logo"></img>
                 <h1>ZapRecall</h1>
-                <button onClick={startRecall}>Iniciar Recall!</button>
+                <button data-test="start-btn" onClick={startRecall}>Iniciar Recall!</button>
             </LogoContainer>
         </ScreenContainer>
     );
