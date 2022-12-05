@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import logo from "../assets/img/logo.png";
 import { useState } from "react";
 
-export default function Main() {
+export default function Main({ flashcards }) {
     const [count, setCount] = useState(0);
 
     return (
@@ -13,7 +13,7 @@ export default function Main() {
                 <img src={logo} alt="logo"></img>
                 <h1>ZapRecall</h1>
             </LogoContainer>
-            <CardsContainer count={count} setCount={setCount} />
+            <CardsContainer count={count} setCount={setCount} flashcards={flashcards} />
             <Footer count={count} />
         </ScreenContainer>
     );

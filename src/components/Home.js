@@ -1,10 +1,32 @@
 import styled from "styled-components";
 import logo from "../assets/img/logo.png";
+import deck from "../deck";
 
-export default function Home({ setExibirTelaInicial, setExibirMain }) {
+export default function Home({ setExibirTelaInicial, setExibirMain, setFlashcards }) {
     function startRecall() {
-        setExibirTelaInicial(false);
+        cardsRandomize();
         setExibirMain(true);
+        setExibirTelaInicial(false);
+    }
+
+    function cardsRandomize() {
+        //Código para ordenar o deck de forma aletória
+        for (let i = 0; i < deck.length; i++) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+        //gerar um Array com 8 itens do deck
+        const cardsList = [];
+        const numberOfCards = 8;
+        let index = 1;
+
+        for (let i = 0; i < numberOfCards; i++) {
+            cardsList.push({ index: index, question: deck[i].question, answer: deck[i].answer });
+            index++;
+        }
+        console.log(cardsList);
+
+        setFlashcards(cardsList);
     }
 
     return (
